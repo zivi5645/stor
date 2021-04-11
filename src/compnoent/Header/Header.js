@@ -1,7 +1,6 @@
 import React, { Component, useState } from "react";
 
-const Header = (props) => {
-  const { selectedCategory, setselectedCategory, categories } = props;
+const Header = ({ selectedCategory, setselectedCategory, categories }) => {
   return (
     <nav className="product-filter">
       <h1>Jackets</h1>
