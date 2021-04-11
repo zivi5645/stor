@@ -1,25 +1,42 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect, useState } from "react";
+import "./App.css";
+// import Todos from "./compnoent/Todos/Todos";
+// import Todos from "./compnoent/TodosListitem/TodosListitem";
+import Products from "./compnoent/Products/Products";
+import Header from "./compnoent/Header/Header";
 
-function App() {
+const App = () => {
+  const [products, setProducts] = useState([]);
+  const [selectedCategory, setselectedCategory] = useState("");
+
+  const groupBy = (xs, key) =>
+    xs.reduce((rv, x) => {
+      rv[x[key]] = true || [];
+      return rv;
+    }, {});
+
+  useEffect(() => {
+    fetch("https://fakestoreapi.com/products")
+      .then((response) => response.json())
+      .then((products) => setProducts(products));
+  }, []);
+
+  let filteredProducts = products.filter(
+    (product) =>
+      product.category === selectedCategory || selectedCategory === ""
+  );
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="app">
+      {/* <div>{selectedCategory}</div> */}
+      <Header
+        category={selectedCategory}
+        setselectedCategory={setselectedCategory}
+        categories={Object.keys(groupBy(products, "category"))}
+      />
+      <Products products={filteredProducts} category={selectedCategory} />
     </div>
   );
-}
+};
 
 export default App;
