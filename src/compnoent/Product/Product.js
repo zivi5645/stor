@@ -1,14 +1,7 @@
 import React, { Component } from "react";
 import sale from "./sale.jfif";
 
-const Product = ({
-  image,
-  title,
-  price,
-  selectedCategory,
-  category,
-  onSale,
-}) => {
+const Product = ({ image, title, price, onSale }) => {
   return (
     <div className="product-card">
       {price > 50 && onSale && <img src={sale} width="100" alt="sale" />}

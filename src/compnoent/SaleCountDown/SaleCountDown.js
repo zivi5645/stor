@@ -1,35 +1,30 @@
-import React, { Component, useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 
 const SaleCountDown = (props) => {
-  //   state = {
-  //     minutes: 0,
-  //     seconds: 5,
-  //   };
   const [minutes, setminutes] = useState(0);
-  const [seconds, setseconds] = useState(5);
-  const [myInterval, setmyInterval] = useState();
+  const [seconds, setseconds] = useState(10);
+
+  const intervalRef = useRef();
 
   useEffect(() => {
-    setmyInterval(
-      setTimeout(() => {
-        if (seconds > 0) {
-          setseconds((seconds) => seconds - 1);
+    const id = setInterval(() => {
+      if (seconds > 0) {
+        setseconds((seconds) => seconds - 1);
+      }
+      if (seconds === 0) {
+        if (minutes === 0) {
+          clearInterval(intervalRef.current);
+          props.endSale();
+        } else {
+          setminutes((minutes) => minutes - 1);
+          setseconds(59);
         }
-        if (seconds === 0) {
-          if (minutes === 0) {
-            clearTimeout(myInterval);
-            props.endSale();
-          } else {
-            setminutes((minutes) => minutes - 1);
-            setseconds(59);
-          }
-        }
-      }, 1000)
-    );
+      }
+    }, 1000);
 
-    return () => {
-      clearTimeout(myInterval);
-    };
+    intervalRef.current = id;
+
+    return () => clearInterval(intervalRef.current);
   }, [minutes, seconds]);
 
   return (

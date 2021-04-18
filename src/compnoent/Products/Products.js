@@ -3,7 +3,6 @@ import Product from "../Product/Product";
 import SaleCountDown from "../SaleCountDown/SaleCountDown";
 
 const Products = ({ products, selectedCategory }) => {
-  // state = { sale: true };
   const [sale, setsale] = useState(true);
 
   const saleOver = () => {
