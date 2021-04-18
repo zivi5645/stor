@@ -1,41 +1,36 @@
 import React, { useEffect, useState } from "react";
 import "./App.css";
-// import Todos from "./compnoent/Todos/Todos";
-// import Todos from "./compnoent/TodosListitem/TodosListitem";
-import Products from "./compnoent/Products/Products";
-import Header from "./compnoent/Header/Header";
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import Home from "./pages/Home/Home";
+import About from "./pages/About/About";
 
 const App = () => {
-  const [products, setProducts] = useState([]);
-  const [selectedCategory, setselectedCategory] = useState("");
-
-  const groupBy = (xs, key) =>
-    xs.reduce((rv, x) => {
-      rv[x[key]] = true || [];
-      return rv;
-    }, {});
-
-  useEffect(() => {
-    fetch("https://fakestoreapi.com/products")
-      .then((response) => response.json())
-      .then((products) => setProducts(products));
-  }, []);
-
-  let filteredProducts = products.filter(
-    (product) =>
-      product.category === selectedCategory || selectedCategory === ""
-  );
-
   return (
-    <div className="app">
-      {/* <div>{selectedCategory}</div> */}
-      <Header
-        category={selectedCategory}
-        setselectedCategory={setselectedCategory}
-        categories={Object.keys(groupBy(products, "category"))}
-      />
-      <Products products={filteredProducts} category={selectedCategory} />
-    </div>
+    <Router>
+      <div>
+        <nav>
+          <ul>
+            <li>
+              <Link to="/">Home</Link>
+            </li>
+            <li>
+              <Link to="/about">About</Link>
+            </li>
+          </ul>
+        </nav>
+
+        {/* A <Switch> looks through its children <Route>s and
+          renders the first one that matches the current URL. */}
+        <Switch>
+          <Route path="/about">
+            <About />
+          </Route>
+          <Route path="/">
+            <Home />
+          </Route>
+        </Switch>
+      </div>
+    </Router>
   );
 };
 
