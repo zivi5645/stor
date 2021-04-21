@@ -1,4 +1,5 @@
 import React, { Component, useState } from "react";
+import { Link } from "react-router-dom";
 import Product from "../Product/Product";
 import SaleCountDown from "../SaleCountDown/SaleCountDown";
 
@@ -10,15 +11,16 @@ const Products = ({ products, selectedCategory }) => {
   };
 
   const listItems = products.map((product) => (
-    <Product
-      key={product.id}
-      title={product.title}
-      image={product.image}
-      price={product.price}
-      onSale={sale}
-      selectedCategory={selectedCategory}
-      category={product.category}
-    ></Product>
+    <Link to={`/products/${product.id}`} key={product.id}>
+      <Product
+        title={product.title}
+        image={product.image}
+        price={product.price}
+        onSale={sale}
+        selectedCategory={selectedCategory}
+        category={product.category}
+      ></Product>
+    </Link>
   ));
   return (
     <div className="products">

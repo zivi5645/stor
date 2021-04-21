@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import "./Home.css";
+// import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import Header from "../../compnoent/Header/Header";
 import Products from "../../compnoent/Products/Products";
 
@@ -36,3 +37,16 @@ const Home = () => {
 };
 
 export default Home;
+// import { createContext } from "react";
+
+// const fonts = {
+//   primary: "Tinos",
+//   secondary: "HEEBO",
+// };
+
+// export const FontContext = createContext(fonts);
+
+// function ProviderFontContext({ children }) {
+//   return <FontContext.Provider value={fonts}>{children}</FontContext.Provider>;
+// }
+// export default ProviderFontContext;
