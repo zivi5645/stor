@@ -11,16 +11,16 @@ const Products = ({ products, selectedCategory }) => {
   };
 
   const listItems = products.map((product) => (
-    <Link to={`/products/${product.id}`} key={product.id}>
-      <Product
-        title={product.title}
-        image={product.image}
-        price={product.price}
-        onSale={sale}
-        selectedCategory={selectedCategory}
-        category={product.category}
-      ></Product>
-    </Link>
+    <Product
+      key={product.id}
+      id={product.id}
+      title={product.title}
+      image={product.image}
+      price={product.price}
+      onSale={sale}
+      selectedCategory={selectedCategory}
+      category={product.category}
+    ></Product>
   ));
   return (
     <div className="products">
