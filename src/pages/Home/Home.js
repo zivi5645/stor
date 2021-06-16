@@ -29,20 +29,6 @@ const Home = () => {
     (product) =>
       product.category === selectedCategory || selectedCategory === ""
   );
-  // useEffect(() => {
-  //   const getProducts = async () => {
-  //     const response = await fetch("http://localhost:8000/products", {
-  //       method: "GET",
-  //     });
-  //     let productsFromServer = await response.json();
-  //     setProducts(productsFromServer);
-  //   };
-  //   getProducts();
-  // });
-  // let filteredProducts = products.filter(
-  //   (product) =>
-  //     product.category === selectedCategory || selectedCategory === ""
-  // );
 
   // const MaxMin = () => {
   //     const priceArray=
@@ -69,16 +55,3 @@ const Home = () => {
 };
 
 export default Home;
-// import { createContext } from "react";
-
-// const fonts = {
-//   primary: "Tinos",
-//   secondary: "HEEBO",
-// };
-
-// export const FontContext = createContext(fonts);
-
-// function ProviderFontContext({ children }) {
-//   return <FontContext.Provider value={fonts}>{children}</FontContext.Provider>;
-// }
-// export default ProviderFontContext;

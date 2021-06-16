@@ -21,7 +21,7 @@ export default function RangeSlider(setFilteredPrice) {
   const handleChange = (event, newValue) => {
     // setFilteredPrice(newValue);
   };
-  // console.log("value by slider ", value);
+
   return (
     <div className={classes.root}>
       <Typography id="range-slider" gutterBottom>
@@ -31,7 +31,6 @@ export default function RangeSlider(setFilteredPrice) {
         min={1}
         max={999}
         value={value}
-        // onChange={handleChange}
         valueLabelDisplay="auto"
         aria-labelledby="range-slider"
         getAriaValueText={valuetext}
@@ -39,6 +38,3 @@ export default function RangeSlider(setFilteredPrice) {
     </div>
   );
 }
-// Array.reduce(()=>{
-//   acc
-// },{})
