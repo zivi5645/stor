@@ -4,7 +4,7 @@ const About = ({ match }) => {
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
-    fetch(`https://fakestoreapi.com/products/${match.params.productId}`)
+    fetch(`http://localhost:8000/products/${match.params.productId}`)
       .then((response) => response.json())
       .then((products) => setProducts(products));
   }, []);
