@@ -12,7 +12,7 @@ const Products = ({ products, selectedCategory }) => {
   const listItems = products.map((product) => (
     <Product
       key={product.id}
-      id={product.id}
+      id={product._id}
       title={product.title}
       image={product.image}
       price={product.price}
