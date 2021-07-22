@@ -309,3 +309,134 @@
 // db.once("open", function () {
 //   // we're connected!
 // });
+
+
+6.  //appproduct
+// import React from 'react';
+// import { useReducer } from 'react';
+// import { useState } from 'react';
+// import Products from "../Products/Products"
+
+// const Addproduct= () => {
+    // const [list, dispatchList]=useReducer(
+    //     listReducer,
+    //     initialList
+    //   );
+
+    // const [listData, setListData] =useState({
+    //     list:name,
+    //     isShowList: true,
+    //   });
+    //   const [name, setName] = useState('');
+     
+    //   function handleChange(event) {
+    //     setName(event.target.value);
+    //   }
+   
+    // function handleAdd() {
+    //     // dispatchList({ type: 'ADD_ITEM', name, id: uuidv4() });
+
+    // const newList = listData.list.concat({
+    //     name,
+    //     id:AddItem,
+    //   });
+   
+    //   setListData({ ...listData, list: newList });
+   
+    //   setName('');
+    // }
+    // return (
+//         <div>
+//           <AddItem
+//             name={name}
+//             onChange={handleChange}
+//             onAdd={handleAdd}
+//           />
+          
+//           {listData.isShowList && <List list={listData.list} />}
+//           {/* <List list={list} /> */}
+//         </div>
+//       );
+//     };
+     
+//     const AddItem = ({ name, onChange, onAdd }) => (
+//       <div>
+//         <input type="text" value={name} onChange={onChange} />
+//         <button type="button" onClick={onAdd}>
+//           Add
+//         </button>
+//       </div>
+//     );
+     
+//     const List = ({ list }) => (
+//       <ul>
+//         {list.map((item) => (
+//           <li key={item.id}>{item.name}</li>
+//         ))}
+//       </ul>
+//     );
+ 
+// export default Addproduct;
+
+
+// const listReducer = (state, action) => {
+//     switch (action.type) {
+//       case 'ADD_ITEM':
+//         return {
+//           ...state,
+//           list: state.list.concat({ name: action.name, id: action.id }),
+//         };
+//       default:
+//         throw new Error();
+//     }
+//   };
+
+
+
+    //   const [listData, dispatchListData] =useReducer(listReducer, {
+    //     list: initialList,
+    //     isShowList: true,
+    //   });
+
+
+{/* <List list={listData.list} /> */}
+
+8.
+  // const MaxMin = () => {
+  //     const priceArray=
+  //   products.reduce((price, cur) => {
+  //     return(
+  //     price.min > cur ? price.min : cur
+  //         price.max < cur ? price.max : cur
+  //         )
+  //   }, {max[0], min[1]});
+  // };
+  // console.log("filteredPrice", filteredPrice);
+  // const setFunc = (event, value) => setFilteredPrice(value);
+
+  // const [filteredPrice, setFilteredPrice] = useState();
+  // const [products, setProducts] = useState([]);
+  // console.log("theme", theme);
+
+  9.
+  //   const AddProduct = async (title) => {
+//   const res= await fetch('http://localhost:8000/products', {
+//   method: 'POST', // or 'PUT'
+//   headers: {
+//     'Content-Type': 'application/json',
+//   },
+//   body: JSON.stringify({title}),
+// })
+// const product = await res.json();
+//     setProducts([product, ...products]);
+//   };
+
+  {/* <Addproduct onAdd={AddProduct}/> */}
+
+  // import Addproduct from "../../compnoent/AddProduct/AddProduct";
+
+// const Home = () => {
+    // const [products, setProducts] = useState([]);
+    // const [selectedCategory, setselectedCategory] = useState("");
+    // const theme = useContext(ThemeContext);
+    // const [products, setProducts] = useState([]);
