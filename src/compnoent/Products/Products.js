@@ -21,6 +21,7 @@ const Products = ({ products, selectedCategory }) => {
       category={product.category}
     ></Product>
   ));
+
   return (
     <div className="products">
       <div>

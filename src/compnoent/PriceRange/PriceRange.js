@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Typography from "@material-ui/core/Typography";
 import Slider from "@material-ui/core/Slider";
-// import { Accordion } from "@material-ui/core";
+import { Accordion } from "@material-ui/core";
 
 const useStyles = makeStyles({
   root: {
@@ -14,12 +14,12 @@ function valuetext(value) {
   return `${value}°C`;
 }
 
-export default function RangeSlider(setFilteredPrice) {
+export default function RangeSlider() {
   const classes = useStyles();
-  const [value, setValue] = useState([1, 999]);
+  const [value, setValue] = useState([20, 37]);
 
   const handleChange = (event, newValue) => {
-    // setFilteredPrice(newValue);
+    setValue(newValue);
   };
 
   return (
@@ -31,6 +31,7 @@ export default function RangeSlider(setFilteredPrice) {
         min={1}
         max={999}
         value={value}
+        onChange={handleChange}
         valueLabelDisplay="auto"
         aria-labelledby="range-slider"
         getAriaValueText={valuetext}

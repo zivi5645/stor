@@ -3,15 +3,15 @@ import "./Home.css";
 // import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import Header from "../../compnoent/Header/Header";
 import Products from "../../compnoent/Products/Products";
-// import RangeSlider from "../../compnoent/PriceRange/PriceRange";
 import ThemeContext from "../../ThemeContext";
 import Addproduct from "../../compnoent/AddProduct/AddProduct";
+import RangeSlider from "../../compnoent/PriceRange/PriceRange";
 
 const Home = () => {
   const [products, setProducts] = useState([]);
   const [selectedCategory, setselectedCategory] = useState("");
+  const [filteredPrice,setfilteredPrice] = useState("");
   const theme = useContext(ThemeContext);
-  // const [products, setProducts] = useState([]);
 
   const groupBy = (xs, key) =>
     xs.reduce((rv, x) => {
@@ -29,7 +29,18 @@ const Home = () => {
     (product) =>
       product.category === selectedCategory || selectedCategory === ""
   );
-  
+
+  const minMax=(products) =>{
+    return products.reduce(
+        (acc, cur) => {
+            return [
+                Math.min(cur, acc[0]), 
+                Math.max(cur, acc[1]), 
+            ];
+        }, [Number.MAX_VALUE, Number.MIN_VALUE]
+    );
+}
+ 
   const AddProduct = async (title) => {
   const res= await fetch('http://localhost:8000/products', {
   method: 'POST', // or 'PUT'
@@ -44,7 +55,7 @@ const product = await res.json();
 
   return (
     <div className="app" style={{ background: theme.background }}>
-      {/* <RangeSlider setFilteredPrice={setFunc}></RangeSlider> */}
+      <RangeSlider minMax={minMax} filteredPrice={filteredPrice} setfilteredPrice={setfilteredPrice}></RangeSlider>
       <Addproduct onAdd={AddProduct}/>
       <Header
         category={selectedCategory}
