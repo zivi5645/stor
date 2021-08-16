@@ -20,6 +20,7 @@ export default function RangeSlider() {
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
+    console.log(newValue);
   };
 
   return (
@@ -39,3 +40,11 @@ export default function RangeSlider() {
     </div>
   );
 }
+
+// function last2(str) {
+
+//   return str.slice(-2)
+
+
+// }
+// console.log(last2("fghjk"));

@@ -30,16 +30,17 @@ const Home = () => {
       product.category === selectedCategory || selectedCategory === ""
   );
 
-  const minMax=(products) =>{
-    return products.reduce(
-        (acc, cur) => {
-            return [
-                Math.min(cur, acc[0]), 
-                Math.max(cur, acc[1]), 
-            ];
-        }, [Number.MAX_VALUE, Number.MIN_VALUE]
-    );
-}
+
+//   const minMax=(products) =>{
+//     return products.reduce(
+//         (acc, cur) => {
+//             return [
+//                 Math.min(cur, acc[0]), 
+//                 Math.max(cur, acc[1]), 
+//             ];
+//         }, [Number.MAX_VALUE, Number.MIN_VALUE]
+//     );
+// }
  
   const AddProduct = async (title) => {
   const res= await fetch('http://localhost:8000/products', {
@@ -52,10 +53,30 @@ const Home = () => {
 const product = await res.json();
     setProducts([product, ...products]);
   };
+  let timeOut = setTimeout(()=>{
+    let newValue=[20,70]
+let counter = 0
+let filterededProducts =()=> products.filter(
+    (product) =>{
+
+if(
+  product.price<newValue[0]&&
+  product.price<newValue[1]
+
+){
+  counter++
+  console.log(" counter", counter);
+}
+    }
+  );
+  filterededProducts()
+  },1000)
 
   return (
     <div className="app" style={{ background: theme.background }}>
-      <RangeSlider minMax={minMax} filteredPrice={filteredPrice} setfilteredPrice={setfilteredPrice}></RangeSlider>
+      <RangeSlider></RangeSlider>
+    {timeOut}
+      {/* <RangeSlider minMax={minMax} filteredPrice={filteredPrice} setfilteredPrice={setfilteredPrice}></RangeSlider> */}
       <Addproduct onAdd={AddProduct}/>
       <Header
         category={selectedCategory}
