@@ -10,7 +10,7 @@ import RangeSlider from "../../compnoent/PriceRange/PriceRange";
 const Home = () => {
   const [products, setProducts] = useState([]);
   const [selectedCategory, setselectedCategory] = useState("");
-  const [filteredPrice,setfilteredPrice] = useState("");
+  const [filteredPrice, setfilteredPrice] = useState("");
   const theme = useContext(ThemeContext);
 
   const groupBy = (xs, key) =>
@@ -30,54 +30,60 @@ const Home = () => {
       product.category === selectedCategory || selectedCategory === ""
   );
 
+  //   const minMax=(products) =>{
+  //     return products.reduce(
+  //         (acc, cur) => {
+  //             return [
+  //                 Math.min(cur, acc[0]),
+  //                 Math.max(cur, acc[1]),
+  //             ];
+  //         }, [Number.MAX_VALUE, Number.MIN_VALUE]
+  //     );
+  // }
 
-//   const minMax=(products) =>{
-//     return products.reduce(
-//         (acc, cur) => {
-//             return [
-//                 Math.min(cur, acc[0]), 
-//                 Math.max(cur, acc[1]), 
-//             ];
-//         }, [Number.MAX_VALUE, Number.MIN_VALUE]
-//     );
-// }
- 
+  // let filteredPrice = products.filter(
+  //   (product) => product.price === selectedCategory || selectedCategory === ""
+  // );
   const AddProduct = async (title) => {
-  const res= await fetch('http://localhost:8000/products', {
-  method: 'POST', // or 'PUT'
-  headers: {
-    'Content-Type': 'application/json',
-  },
-  body: JSON.stringify({title}),
-})
-const product = await res.json();
-    setProducts([product, ...products]);
+    console.log(title);
+    const res = await fetch("http://localhost:8000/products", {
+      method: "POST", // or 'PUT'
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ title }),
+    });
+    // const product = await res.json();
+    // setProducts([product, ...products]);
+    fetch("http://localhost:8000/products")
+      .then((response) => response.json())
+      .then((products) => setProducts(products));
   };
-  let timeOut = setTimeout(()=>{
-    let newValue=[20,70]
-let counter = 0
-let filterededProducts =()=> products.filter(
-    (product) =>{
+  //   let timeOut = setTimeout(()=>{
+  //     let newValue=[20,70]
+  // let counter = 0
+  // let filterededProducts =()=> products.filter(
+  //     (product) =>{
 
-if(
-  product.price<newValue[0]&&
-  product.price<newValue[1]
+  // if(
+  //   product.price<newValue[0]&&
+  //   product.price<newValue[1]
 
-){
-  counter++
-  console.log(" counter", counter);
-}
-    }
-  );
-  filterededProducts()
-  },1000)
+  // ){
+  //   counter++
+  //   console.log(" counter", counter);
+  // }
+  //     }
+  //   );
+  //   filterededProducts()
+  //   },1000)
 
   return (
     <div className="app" style={{ background: theme.background }}>
       <RangeSlider></RangeSlider>
-    {timeOut}
+      {/* {timeOut} */}
       {/* <RangeSlider minMax={minMax} filteredPrice={filteredPrice} setfilteredPrice={setfilteredPrice}></RangeSlider> */}
-      <Addproduct onAdd={AddProduct}/>
+      <Addproduct onAdd={AddProduct} />
       <Header
         category={selectedCategory}
         setselectedCategory={setselectedCategory}

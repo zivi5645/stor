@@ -30,7 +30,7 @@ export default function RangeSlider() {
       </Typography>
       <Slider
         min={1}
-        max={999}
+        max={100}
         value={value}
         onChange={handleChange}
         valueLabelDisplay="auto"
@@ -44,7 +44,6 @@ export default function RangeSlider() {
 // function last2(str) {
 
 //   return str.slice(-2)
-
 
 // }
 // console.log(last2("fghjk"));

@@ -1,4 +1,3 @@
-  
 import React, { useEffect, useRef, useState } from "react";
 
 const AddProduct = (props) => {
@@ -7,11 +6,10 @@ const AddProduct = (props) => {
 
   useEffect(() => {
     // console.log("inputRef", inputRef.current);
-    inputRef.current.focus();    
+    inputRef.current.focus();
   }, []);
-  
-  // console.log("inputRef", inputRef.current);
 
+  // console.log("inputRef", inputRef.current);
 
   return (
     <div>
@@ -27,7 +25,7 @@ const AddProduct = (props) => {
           setInput("");
         }}
       >
-       Add Product
+        Add Product
       </button>
     </div>
   );

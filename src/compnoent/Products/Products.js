@@ -9,18 +9,20 @@ const Products = ({ products, selectedCategory }) => {
     setsale((sale) => !sale);
   };
 
-  const listItems = products.map((product) => (
-    <Product
-      key={product.id}
-      id={product._id}
-      title={product.title}
-      image={product.image}
-      price={product.price}
-      onSale={sale}
-      selectedCategory={selectedCategory}
-      category={product.category}
-    ></Product>
-  ));
+  const listItems = products.map((product) =>
+    product.price > 20 && product.price < 100 ? (
+      <Product
+        key={product.id}
+        id={product._id}
+        title={product.title}
+        image={product.image}
+        price={product.price}
+        onSale={sale}
+        selectedCategory={selectedCategory}
+        category={product.category}
+      ></Product>
+    ) : null
+  );
 
   return (
     <div className="products">
