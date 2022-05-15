@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import Home from "./pages/Home/Home";
+import ProductsPage from "./pages/ProductsPage/ProductsPage";
 import About from "./pages/About/About";
 import ThemeContext, { themes } from "./ThemeContext";
 
@@ -16,16 +17,19 @@ const App = () => {
               <li>
                 <Link to="/">Home</Link>
               </li>
-              {/* <li>
+              <li>
                 <Link to="/about">About</Link>
-              </li> */}
+              </li>
             </ul>
           </nav>
 
           <Switch>
-            <Route path="/products/:productId" component={About}></Route>
+            <Route path="/products/:productId" component={ProductsPage}></Route>
             <Route path="/">
               <Home />
+            </Route>
+            <Route path="/about">
+              <About />
             </Route>
           </Switch>
         </div>
