@@ -10,7 +10,7 @@ const Products = ({ products, selectedCategory }) => {
   };
 
   const listItems = products.map((product) =>
-    product.price > 20 && product.price < 100 ? (
+    product.price > 10 && product.price < 300 ? (
       <Product
         key={product.id}
         id={product._id}

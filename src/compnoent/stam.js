@@ -1,4 +1,4 @@
-1 //שנוי עוז;
+1; //שנוי עוז;
 // useEffect(() => {
 //   const getProducts = async () => {
 //     const response = await fetch("http://localhost:8000/products", {
@@ -28,12 +28,12 @@
 // }
 // export default ProviderFontContext;
 
-3.
+3;
 // Array.reduce(()=>{
 //   acc
 // },{})
 
-4. //שרת;
+4; //שרת;
 // const express = require("express");
 // const bodyParser = require("body-parser");
 // const mongoose = require("mongoose");
@@ -109,51 +109,52 @@
 //   // we're connected!
 // });
 
-5. // reduce פונקצית
-  // const MaxMin = () => {
-  //     const priceArray=
-  //   products.reduce((price, cur) => {
-  //     return(
-  //     price.min > cur ? price.min : cur
-  //         price.max < cur ? price.max : cur
-  //         )
-  //   }, {max[0], min[1]});
-  // };
+5; // reduce פונקצית
+// const MaxMin = () => {
+//     const priceArray=
+//   products.reduce((price, cur) => {
+//     return(
+//     price.min > cur ? price.min : cur
+//         price.max < cur ? price.max : cur
+//         )
+//   }, {max[0], min[1]});
+// };
 
-  // function minMax(items) {
-  //   var minMaxArray = items.reduce(
-  //      (accumulator, currentValue) => {
-  //           return (accumulator < currentValue ? accumulator : currentValue);
-  //      }
-  //  );
+// function minMax(items) {
+//   var minMaxArray = items.reduce(
+//      (accumulator, currentValue) => {
+//           return (accumulator < currentValue ? accumulator : currentValue);
+//      }
+//  );
 
-  //   return minMaxArray;
+//   return minMaxArray;
+
+// const [filteredPrice, setFilteredPrice] = useState();
+// const [products, setProducts] = useState([]);
+// console.log("theme", theme);
+
+//   6.
+//     const AddProduct = async (title) => {
+//   const res= await fetch('http://localhost:8000/products', {
+//   method: 'POST', // or 'PUT'
+//   headers: {
+//     'Content-Type': 'application/json',
+//   },
+//   body: JSON.stringify({title}),
+// })
+// const product = await res.json();
+//     setProducts([product, ...products]);
+//   };
+
+{
+  /* <Addproduct onAdd={AddProduct}/> */
 }
- 
-  // const [filteredPrice, setFilteredPrice] = useState();
-  // const [products, setProducts] = useState([]);
-  // console.log("theme", theme);
 
-  6.
-    const AddProduct = async (title) => {
-  const res= await fetch('http://localhost:8000/products', {
-  method: 'POST', // or 'PUT'
-  headers: {
-    'Content-Type': 'application/json',
-  },        
-  body: JSON.stringify({title}),
-})
-const product = await res.json();
-    setProducts([product, ...products]);
-  };
+// import Addproduct from "../../compnoent/AddProduct/AddProduct";
 
-  {/* <Addproduct onAdd={AddProduct}/> */}
+7; // PriceRange שנוי עוז
 
-  // import Addproduct from "../../compnoent/AddProduct/AddProduct";
-  
-7.  // PriceRange שנוי עוז
-
- // import React, { useState } from "react";
+// import React, { useState } from "react";
 // import { makeStyles } from "@material-ui/core/styles";
 // import Typography from "@material-ui/core/Typography";
 // import Slider from "@material-ui/core/Slider";
@@ -195,18 +196,46 @@ const product = await res.json();
 //     </div>
 //   );
 // }
-7.//reduce
+7; //reduce
 
 // && product.price>minValue &&product.price<maxValue
-  // && product.price>minValue &&product.price<maxValue
+// && product.price>minValue &&product.price<maxValue
 
 //   const minMax=(products) =>{
 //     return products.reduce(
 //         (acc, cur) => {
 //             return [
-//                 Math.min(cur, acc[0]), 
-//                 Math.max(cur, acc[1]), 
+//                 Math.min(cur, acc[0]),
+//                 Math.max(cur, acc[1]),
 //             ];
 //         }, [Number.MAX_VALUE, Number.MIN_VALUE]
 //     );
 // }
+
+/* body{
+    display: flex;
+    justify-content: center;
+
+} */
+/* img {
+    display: flex;
+    justify-content: space-around;
+    border-radius: 12px; 
+    padding: 5px; 
+    height: 480px;
+    width: 500px;
+  } */
+/* .price{
+    display: flex;
+    justify-content: flex-end;
+  } */
+
+/* .productsPage{ */
+/* background-color: rgb(242, 184, 184); */
+/* width: 800px; */
+/* height: 650px; */
+/* border: 2px solid red; */
+/* border-radius: 8px;  */
+/* padding: 5px;  */
+/* border-radius: 5px; */
+/* } */
